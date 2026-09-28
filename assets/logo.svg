@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title">
+  <title id="title">Framely</title>
+  <defs>
+    <linearGradient id="aurora" x1="12" y1="14" x2="88" y2="88" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#73E1F4"/>
+      <stop offset="0.48" stop-color="#356FE8"/>
+      <stop offset="1" stop-color="#9B6CFF"/>
+    </linearGradient>
+    <radialGradient id="sparkle-glow">
+      <stop stop-color="#B58CFF" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#B58CFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="12" y="16" width="76" height="68" rx="18" fill="#0B1020" stroke="url(#aurora)" stroke-width="6"/>
+  <path d="M29 65 43 49l10 11 9-9 12 14H29Z" fill="url(#aurora)" opacity="0.95"/>
+  <circle cx="65" cy="37" r="7" fill="#D4EEFF"/>
+  <circle cx="79" cy="16.5" r="15" fill="url(#sparkle-glow)"/>
+  <path d="M79 10v13M72.5 16.5h13" stroke="#C6A5FF" stroke-width="4" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,14 @@
+{
+  "src": ["src"],
+  "exclude": [
+    "tests/**",
+    "app-bundle/**",
+    "scripts/**",
+    "release/**",
+    "**/*.d.ts",
+    "**/*.config.*"
+  ],
+  "reporter": ["text", "html", "lcov"],
+  "all": true,
+  "clean": true
+}

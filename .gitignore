@@ -1,0 +1,54 @@
+# Dependency directories
+node_modules/
+.sharp-stage/
+
+# Local-only files and asset tooling
+.private/
+.agents/
+.codex/
+.commandcode/
+.env
+.env.*
+/scripts/generate-*.js
+/scripts/optimize-backgrounds.js
+
+# Build and package outputs
+app-bundle/
+release/
+dist/
+coverage/
+.nyc_output/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor configuration
+.idea/
+.vscode/
+*.suo
+*.ntvsca
+*.ntvs_analysis_state
+*.njsproj
+*.sln
+*.sw?
+*.txt
+!docs/llms.txt
+!docs/llms-full.txt
+!docs/robots.txt
+
+*.md
+!README.md
+!PRIVACY.md
+!NOTICE.md
+.aider*
+.qwen/settings.json
+.qwen/settings.json.orig
+.commandcode/**/taste.md

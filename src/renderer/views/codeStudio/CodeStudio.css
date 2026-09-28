@@ -1,0 +1,140 @@
+/* === CODE STUDIO === */
+
+/* Code preview container — sits inside the mockup box */
+.code-preview-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-family: 'Geist Mono', 'Consolas', 'Courier New', monospace;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Line numbers gutter */
+.code-preview-gutter {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  padding: var(--space-4) var(--space-3);
+  user-select: none;
+  flex-shrink: 0;
+  min-width: 44px;
+  border-right: 1px solid rgba(128, 128, 128, 0.15);
+  box-sizing: border-box;
+}
+
+.code-preview-gutter span {
+  line-height: 1.6;
+  display: block;
+}
+
+.code-preview-gutter .breakpoint-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  cursor: pointer;
+  line-height: 1.6;
+  border-radius: 3px;
+  transition: background 120ms ease;
+}
+
+.code-preview-gutter .breakpoint-row:hover {
+  background: rgba(128, 128, 128, 0.08);
+}
+
+.code-preview-gutter .breakpoint-marker {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  transition: transform 120ms ease;
+  flex-shrink: 0;
+}
+
+.code-preview-gutter .breakpoint-row:hover .breakpoint-marker {
+  transform: scale(1.2);
+}
+
+.code-preview-gutter .line-number {
+  display: block;
+}
+
+/* Code editor area wrapper */
+.code-editor-area {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Code lines container (for syntax highlighted divs) */
+.code-preview-lines {
+  width: 100%;
+  height: 100%;
+  padding: var(--space-4) var(--space-4);
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0;
+}
+
+.code-preview-line {
+  line-height: 1.6;
+  white-space: pre;
+  min-height: 1.6em;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Textarea overlay selection overrides */
+.code-editor-textarea-overlay {
+  tab-size: 4;
+  -moz-tab-size: 4;
+}
+
+.code-editor-textarea-overlay::selection {
+  background: rgba(128, 128, 128, 0.35);
+  color: #ffffff; /* Make text readable on selection overlay */
+}
+
+/* Language badge */
+.code-language-badge {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-3);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(128, 128, 128, 0.15);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Toolbar code controls */
+.code-studio-toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.code-studio-toolbar-controls select {
+  height: 28px;
+  width: auto;
+  min-width: 90px;
+  font-size: var(--fs-label);
+  padding: 0 24px 0 8px;
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.code-studio-toolbar-controls .toolbar-control input[type="range"] {
+  width: 60px;
+}

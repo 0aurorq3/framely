@@ -1,0 +1,139 @@
+{
+  "name": "framely",
+  "version": "0.5.1",
+  "description": "Turn screenshots into polished, shareable visuals with adaptive aurora backgrounds.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "build": "node scripts/build.js",
+    "verify:package": "node scripts/verify-package.js",
+    "lint": "tsc --noEmit",
+    "pretest": "npm run lint",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "package": "npm run build && electron-builder --win portable"
+  },
+  "keywords": [],
+  "author": "Framely contributors",
+  "license": "MIT",
+  "overrides": {
+    "js-yaml": "4.3.2"
+  },
+  "dependencies": {
+    "sharp": "^0.35.4"
+  },
+  "devDependencies": {
+    "@electron/asar": "3.4.1",
+    "@paper-design/shaders": "0.0.77",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/coverage-v8": "4.1.7",
+    "c8": "^10.1.3",
+    "electron": "^43.4.0",
+    "electron-builder": "^24.13.3",
+    "esbuild": "^0.23.1",
+    "jsdom": "^29.1.1",
+    "lucide-react": "^0.435.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.4",
+    "vite": "^6.0.0",
+    "vitest": "4.1.7"
+  },
+  "build": {
+    "appId": "app.framely.desktop",
+    "productName": "Framely",
+    "compression": "maximum",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      {
+        "from": "app-bundle",
+        "to": "."
+      },
+      "package.json",
+      "node_modules/sharp/**/*",
+      "node_modules/@img/**/*",
+      "!node_modules/**/*.map",
+      "!node_modules/**/*.d.ts",
+      "!node_modules/**/*.d.cts",
+      "!node_modules/**/*.d.mts",
+      "!node_modules/sharp/dist/**/*.mjs",
+      "!node_modules/sharp/{src,install,lib}/**/*",
+      "!node_modules/**/README*",
+      "!node_modules/**/CHANGELOG*"
+    ],
+    "asarUnpack": [
+      "node_modules/sharp/**/*",
+      "node_modules/@img/**/*"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "electronLanguages": ["en-US", "ja"],
+      "artifactName": "${productName}-${arch}-${version}.${ext}",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "artifactName": "${productName}-Setup-${arch}-${version}.${ext}",
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false,
+      "deleteAppDataOnUninstall": false
+    },
+    "mac": {
+      "icon": "assets/icon-512.png",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": "universal"
+        },
+        {
+          "target": "zip",
+          "arch": "universal"
+        }
+      ],
+      "category": "public.app-category.graphics-design"
+    },
+    "linux": {
+      "icon": "assets/icon-512.png",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "category": "Graphics"
+    }
+  }
+}

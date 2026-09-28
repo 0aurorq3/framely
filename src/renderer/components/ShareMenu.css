@@ -1,0 +1,98 @@
+/* === SHARE MENU === */
+.share-container {
+  position: relative;
+  display: inline-block;
+}
+
+.share-menu-popover {
+  position: absolute;
+  bottom: calc(100% + var(--space-2));
+  right: 0;
+  width: 230px;
+  background-color: color-mix(in oklch, var(--surface-1) 85%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elev-3);
+  padding: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 100;
+  animation: share-popover-in var(--dur-fast) var(--ease-out-quint);
+  transform-origin: bottom right;
+}
+
+@keyframes share-popover-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.share-menu-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: 100%;
+  padding: 8px var(--space-3);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-out-quint);
+}
+
+.share-menu-item:hover {
+  background-color: var(--surface-2);
+  color: var(--text-primary);
+}
+
+.share-menu-item:active {
+  background-color: var(--surface-3);
+  transform: scale(0.98);
+}
+
+.share-menu-item:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.share-menu-item svg {
+  color: var(--text-tertiary);
+  transition: color var(--dur-fast) var(--ease-out-quint);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.share-menu-item:hover svg {
+  color: var(--accent);
+}
+
+/* Two-line social item layout */
+.share-menu-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.share-menu-item-label {
+  font-size: var(--fs-body);
+  line-height: 1.2;
+}
+
+.share-menu-item-hint {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  line-height: 1.2;
+  font-style: italic;
+}

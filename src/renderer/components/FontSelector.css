@@ -1,0 +1,98 @@
+.font-dropdown-menu {
+  position: fixed;
+  max-height: 300px;
+  background-color: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elev-3);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: dropdownFadeIn var(--dur-fast) var(--ease-out-quint);
+}
+
+.font-search-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  background-color: var(--surface-1);
+}
+
+.font-search-icon {
+  position: absolute;
+  left: 10px;
+  color: var(--text-tertiary);
+  pointer-events: none;
+}
+
+.font-search-input {
+  width: 100% !important;
+  height: 32px !important;
+  border: none !important;
+  background: transparent !important;
+  padding-left: 28px !important;
+  padding-right: 24px !important;
+  font-size: var(--fs-label) !important;
+  color: var(--text-primary) !important;
+  outline: none !important;
+}
+
+.font-search-clear {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.font-search-clear:hover {
+  color: var(--text-primary);
+}
+
+.font-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-1);
+}
+
+.font-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  margin-bottom: 1px;
+  transition: background-color var(--dur-fast) var(--ease-out-quint);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.font-item:hover {
+  background-color: var(--surface-3);
+}
+
+.font-item.selected {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.font-check-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.font-no-results {
+  text-align: center;
+  padding: var(--space-4) 0;
+  color: var(--text-tertiary);
+  font-size: var(--fs-label);
+}

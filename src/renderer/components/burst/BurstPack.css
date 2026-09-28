@@ -1,0 +1,314 @@
+.burst-pack-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  padding: var(--space-4);
+  animation: burst-pack-overlay-in 200ms var(--ease-out-quint);
+}
+
+.burst-pack-dialog {
+  width: min(520px, 100%);
+  max-height: 85vh;
+  overflow: auto;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--elev-3);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  animation: burst-pack-dialog-in 200ms var(--ease-out-quint);
+}
+
+@keyframes burst-pack-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes burst-pack-dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.burst-pack-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.burst-pack-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.burst-pack-title-row h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.burst-pack-close {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.burst-pack-subtitle {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.burst-pack-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.burst-pack-section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+  margin-top: var(--space-1);
+}
+
+.burst-pack-option {
+  text-align: left;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.burst-pack-option:hover {
+  background: var(--surface-3);
+  border-color: var(--border-strong);
+}
+
+.burst-pack-option.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+  background: color-mix(in oklch, var(--accent) 10%, var(--surface-2));
+}
+
+.burst-pack-option-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.burst-pack-option-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.burst-pack-option-count {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.burst-pack-custom-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 180px;
+  overflow: auto;
+}
+
+.burst-pack-custom-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.75rem;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.burst-pack-custom-item:hover {
+  background: var(--surface-2);
+}
+
+.burst-pack-custom-item.checked {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+
+.burst-pack-custom-item input[type='checkbox'] {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.burst-pack-custom-label {
+  color: var(--text-primary);
+}
+
+.burst-pack-custom-size {
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+.burst-pack-custom-hint {
+  margin: 0;
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  line-height: 1.4;
+}
+
+.burst-pack-save-dest {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.burst-pack-save-dest svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--accent);
+}
+
+.burst-pack-save-dest-path {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.68rem;
+  color: var(--text-primary);
+  word-break: break-all;
+}
+
+.burst-pack-progress-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.burst-pack-progress-bar {
+  height: 4px;
+  background: var(--surface-3);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.burst-pack-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.burst-pack-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-3);
+}
+
+.burst-pack-footer-hint {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.burst-pack-footer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+/* === Launch checklist (post-burst viral UX) === */
+.burst-pack-done {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.burst-pack-done-hero {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  padding: 12px;
+  border-radius: 10px;
+  background: color-mix(in oklch, var(--accent) 12%, var(--surface-2));
+  border: 1px solid color-mix(in oklch, var(--accent) 35%, var(--border));
+}
+
+.burst-pack-done-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.burst-pack-done-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.burst-pack-done-sub {
+  margin: 4px 0 0;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.burst-pack-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.burst-pack-checklist li {
+  margin: 0;
+}
+
+.burst-pack-check-btn {
+  width: 100%;
+  justify-content: flex-start;
+  gap: 8px;
+  text-align: left;
+}
