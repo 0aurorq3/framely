@@ -9,4 +9,4 @@ npm ci
 npm run dev
 ```
 
-[License](LICENSE) · [Third-party notices](NOTICE.md) · [Privacy](PRIVACY.md)
+[Download](https://github.com/0aurorq3/framely/releases/latest) · [License](LICENSE) · [Third-party notices](NOTICE.md) · [Privacy](PRIVACY.md)
