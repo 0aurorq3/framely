@@ -22,6 +22,8 @@ export default function ShaderControls() {
     handleSliderRelease,
   } = useAppContext();
 
+  const presets = shaderPresets.filter((preset) => preset.type === shaderType);
+
   const applyPreset = (preset: typeof shaderPresets[0]) => {
     setShaderType(preset.type);
     setShaderColors(preset.colors);
@@ -113,31 +115,32 @@ export default function ShaderControls() {
 
       {/* Presets */}
       <div className="control-group">
-        <span className="control-label">Presets</span>
-        <div className="preset-grid">
-          {shaderPresets
-            .filter((p) => p.type === shaderType)
-            .map((preset) => (
-              <Tooltip key={preset.id} position="top">
-                <div
-                  className={`preset-swatch ${preset.id === 'framely-aurora' ? 'featured-preset' : ''}`}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Apply ${preset.name} background`}
-                  style={{
-                    background: `linear-gradient(135deg, ${preset.colors.join(', ')})`,
-                  }}
-                  onClick={() => applyPreset(preset)}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                      event.preventDefault();
-                      applyPreset(preset);
-                    }
-                  }}
-                  title={preset.name}
-                />
-              </Tooltip>
-            ))}
+        <div className="control-label-container">
+          <span className="control-label">Presets</span>
+          <span className="control-value">{presets.length}</span>
+        </div>
+        <div className="preset-grid shader-preset-grid" role="group" aria-label="Shader presets">
+          {presets.map((preset) => (
+            <Tooltip key={preset.id} position="top">
+              <div
+                className={`preset-swatch ${preset.id === 'framely-aurora' ? 'featured-preset' : ''}`}
+                role="button"
+                tabIndex={0}
+                aria-label={`Apply ${preset.name} background`}
+                style={{
+                  background: `linear-gradient(135deg, ${preset.colors.join(', ')})`,
+                }}
+                onClick={() => applyPreset(preset)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    applyPreset(preset);
+                  }
+                }}
+                title={preset.name}
+              />
+            </Tooltip>
+          ))}
         </div>
       </div>
 

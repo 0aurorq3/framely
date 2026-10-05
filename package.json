@@ -1,6 +1,6 @@
 {
   "name": "framely",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Turn screenshots into polished, shareable visuals with adaptive aurora backgrounds.",
   "main": "main.js",
   "scripts": {
